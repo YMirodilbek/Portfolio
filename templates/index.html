@@ -1,0 +1,807 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Portfolio Website of Mirodilbek Yuldashev</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Start Include All CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/stroke-gap-icons.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/icofont.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/flaticon.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/Interest.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/lightslider.css'%}">
+        <link rel="stylesheet" href="{% static 'assets/css/jquery.mCustomScrollbar.css'%}">
+        
+        <link rel="stylesheet" href="{% static 'assets/css/preset.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/ignore_for_wp.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/theme.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/light.css'%}"/>
+        <!-- End Include All CSS -->
+
+        <!-- Favicon Icon -->
+        <link rel="icon"  type="image/png" href="{% static 'assets/images/favicon.png'%}">
+        <!-- Favicon Icon -->
+    </head>
+    <body class="light">
+        
+        <!-- Preloader Start -->
+         {% comment %} <div class="preloader">
+            <div class="preloader-inner">
+                <div class="preloader-box">
+                    <div class="letter">M</div>
+                    <div class="letter">I</div>
+                    <div class="letter">R</div>
+                    <div class="letter">O</div>
+                    <div class="letter">D</div>
+                    <div class="letter">I</div>
+                    <div class="letter">L</div>
+                    <div class="letter">B</div>
+                    <div class="letter">E</div>
+                    <div class="letter">K</div>
+
+                </div>
+            </div>
+        </div> {% endcomment %}
+        <!-- Preloader End -->
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 profileColumn">
+                    <div class="profileSidebar">
+                        <div class="psHeader">
+                            <svg preserveAspectRatio="none" viewBox="0 0 100 100">
+                                <polygon points="0 20, 100 20, 0 100" opacity=".65"></polygon>
+                            </svg>
+                            <svg class="svg2" preserveAspectRatio="none" viewBox="0 0 100 120">
+                                <polygon points="0 20, 100 20, 15 120" opacity=".8"></polygon>
+                            </svg>
+                            <div class="psContent">
+                                <h3>{{ info.fi }}</h3>
+                                <span>{{ info.staff }}</span>
+                            </div>
+                        </div>
+                        <div class="psPhoto">
+                            <img src="{{ info.photo.url }}" style="height:100%" alt=""/>
+                            <div class="psSocial">
+                                {% for m in smedia %}
+                                    <a href="{{ m.url }}" target="_blank" class="{{ m.color }}"><i class="{{ m.icon }}"></i></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="psSkills">
+                            {% for i in skills %}
+                            <div class="pssBox" data-count="{{ i.percent }}">
+                                <div class="pssbCount">{{ i.percent }}.</div>
+                                <h5>{{ i.tech }}</h5>
+                                <div class="pssbBars"><div class="pssbBar" style="width: 0%;"></div></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="psFooter">
+                            <a href="javascript:void(0);" class="btt_btn only_icon btt_reverse"><span><i class="icon icon-DownloadCloud"></i></span></a>
+                            <a href="javascript:void(0);" class="btt_btn contact_me"><span><i class="icon icon-Bag"></i> Ko'proq</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 contentColumn" id="tabContainer">
+                    <header class="header clearfix">
+                        <a href="javascript:void(0)" class="menu_btn"><i class="icofont-navigation-menu"></i>Asosiy</a>
+                        <nav class="mainMenu">
+                            <ul class="clearfix" id="mainTab">
+                                <li class="active"><a href="#home"><i class="icon icon-House"></i><span>Asosiy</span></a></li>
+                                <li><a href="#resume"><i class="icon icon-User"></i><span>Men Haqimda</span></a></li>
+                                <li><a href="#portfolio"><i class="icon icon-Bulb"></i><span>Portfolio</span></a></li>
+                                <li><a href="#blog"><i class="icon icon-ClipboardText"></i><span>Blog</span></a></li>
+                                <li><a href="#contact"><i class="icon icon-Imbox"></i><span>Aloqa</span></a></li>
+                                <li><a href="#Batafsil"><i class="icon icon-Notebook"></i><span>Batafsil..</span></a></li>
+
+                            </ul>
+                        </nav>
+                        <a href="#" class="sidebarToggler"><span><span></span><span></span><span></span></span></a>
+                    </header>
+                    <div class="sidebar">
+                        <a href="javascript:void(0);" class="widget_closer"><i class="icofont-close-line"></i></a>
+                        <div class="widget widget-search">
+                            <h3 class="widget_title">Qidiruv</h3>
+                            <form method="post" action="#" class="search_form">
+                                <input type="text" name="s" placeholder="Enter Keword">
+                                <button type="submit"><i class="icon icon-Search"></i></button>
+                            </form>
+                        </div>
+                        <div class="widget widget-search">
+                            <h3 class="widget_title">Categories</h3>
+                            <ul>
+                                <li><a href="#">Web</a>(18)</li>
+                                <li><a href="#">Startup</a>(11)</li>
+                                <li><a href="#">Branding</a>(17)</li>
+                                <li><a href="#">UI UX</a>(23)</li>
+                                <li><a href="#">Agency</a>(19)</li>
+                            </ul>
+                        </div>
+                        <div class="widget">
+                            <h3 class="widget_title">
+                                Recent Posts
+                            </h3>
+                            <div class="singleRecent">
+                                <img src="{% static 'assets/images/blog/7.jpg'%}" alt="">
+                                <span>01 Apr, 2021</span>
+                                <a href="single_blog.html">
+                                    Create your next web site with Unity.
+                                </a>
+                            </div>
+                            <div class="singleRecent">
+                                <img src="{% static 'assets/images/blog/8.jpg'%}" alt="">
+                                <span>31 Mar, 2021</span>
+                                <a href="single_blog.html">
+                                    Truly unique hundreds of elements.
+                                </a>
+                            </div>
+                            <div class="singleRecent">
+                                <img src="{% static 'assets/images/blog/9.jpg'%}" alt="">
+                                <span>26 Mar, 2021</span>
+                                <a href="single_blog.html">
+                                    Easily create unlimited amount of custom.
+                                </a>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <h3 class="widget_title">Tags</h3>
+                            <div class="tabclouds">
+                                <a href="#">Web Design</a>
+                                <a href="#">Development</a>
+                                <a href="#">CSS</a>
+                                <a href="#">Studio</a>
+                                <a href="#">Award</a>
+                                <a href="#">Mobile</a>
+                                <a href="#">IOS</a>
+                                <a href="#">IOS</a>
+                                <a href="#">UI / UX</a>
+                                <a href="#">Portfolio</a>
+                            </div>
+                        </div>
+                    </div>
+					<div class="sidebarOverlay"></div>
+                    <div class="bodyContent" id="home">
+                        <div class="pageCointainer">
+                            <section class="comonSection aboutSection">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Men Haqimda</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="icon_box_01">
+                                                        <i class="icon icon-User"></i>
+                                                        <h3>Ism-Familyam</h3>
+                                                        <p>{{info.fi}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="icon_box_01">
+                                                        <i class="icon icon-Calculator"></i>
+                                                        <h3>Yosh</h3>
+                                                        <p>{{info.birthday}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="icon_box_01">
+                                                        <i class="icon icon-Mail"></i>
+                                                        <h3>Email Address</h3>
+                                                        <p>{{info.gmail}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="icon_box_01">
+                                                        <i class="icon icon-Phone"></i>
+                                                        <h3>Telefon Raqam</h3>
+                                                        <p>{{info.phone}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="icon_box_01">
+                                                        <i class="icon icon-Pointer"></i>
+                                                        <h3>Address</h3>
+                                                        <p><a href="https://goo.gl/maps/oAtocQAyXsbhssvQ7" target="_blank">Click Here to View Map.</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt30">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle mb22">Qisqacha</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="abContent">
+                                                <p>
+                                                   {{bio.text}}  </p>
+                                                <p>
+                                                   {{bio.text2}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="abContent">
+                                                <p class="mb27">
+                                                   {{bio.text3}}   </p>
+                                                <img class="signImg" src="{% static 'assets/images/home_01/3.png'%}" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt52">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Yo'nalishlar</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row itemMb30">
+                                        {% for i in slide%}
+                                        <div class="col-lg-4">
+                                            
+                                                <div class="icon_box_02">
+                                                    <div class="i_div">
+                                                        <i class="{{i.icon}}"></i>
+                                                    </div>
+                                                    <h3><a href="javascript:void(0);">{{i.title}}</a></h3>
+                                                    <h5>{{i.name}}</h5>
+                                                    <p>
+                                                       {{i.text}}
+                                                    </p>
+                                                </div>
+                                            
+                                        </div>
+                                        {% endfor %}
+                                        
+                                    </div>
+                                    <div class="row mt30">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Ular  Men Haqimda Nima Deydi?</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="testimonialSlider owl-carousel">
+                                                {% for i in post%}
+                                                    <div class="singleTestimonial">
+                                                        <div class="testiImg">
+                                                            <img src="{{i.image.url}}" alt="">
+                                                            <span></span>
+                                                        </div>
+                                                        <div class="testicon">
+                                                            <p>
+                                                                {{i.text}}
+                                                            </p>
+                                                            <div class="tesAuthor"><h5>{{i.name}}</h5> <h6>{{i.site}}</h6></div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt60">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Fair Price</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        {% for i in price%}
+                                            <div class="col-lg-4">
+                                                <div class="pricingTable text-center">
+                                                    <i class="{{i.icon}}"></i>
+                                                    <h5>{{i.title}}</h5>
+                                                    <p>
+                                                        {{i.text}}
+                                                    </p>
+                                                    <h20>${{i.price}}+</h2>
+                                                    <h6>per project</h6>
+                                                    <a href="contact.html" class="btt_link"><i class="icon icon-OpenedLock"></i><span>Let's Start</span></a>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="row mt60">
+                                        <div class="col-lg-5">
+                                            <h2 class="sectionTitle">Mashg'ulotlar</h2>
+                                            {% for i in love%}
+                                                <div class="singleInt">
+                                                    <i class="{{i.icon}}"></i>
+                                                    <h3>{{i.name}}</h3>
+                                                </div>
+                                            {% endfor%}
+                                           
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <h2 class="sectionTitle">Tillar</h2>
+                                            <div class="languageDiv">
+                                                {% for i in lang%}
+                                                    <div class="{{i.level}}">
+                                                        <h5>{{i.language}}</h5>
+                                                        <span></span><span></span><span></span><span></span><span></span>
+                                                        <span></span><span></span><span></span><span></span><span></span>
+                                                        <i>{{i.score}}</i>
+                                                    </div>
+                                                {% endfor%}
+                                             
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt30">
+                                        <div class="col-lg-12">
+                                            <div class="clientSlider owl-carousel">
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/8.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/9.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/10.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/11.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/12.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/13.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/14.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                                <div class="sliderItem">
+                                                    <a href="javascript:void(0);">
+                                                        <img src="{% static 'assets/images/client/15.png'%}" alt="Client"/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt60">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Qiziqarli Faktlar</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row mb30">
+                                        {% for i in fact%}
+                                            <div class="col-lg-4">
+                                                <div class="icon_box_03 text-center hasCounter" data-count="{{i.int}}">
+                                                    <div class="icon_div">
+                                                        <i><span class="counter">{{i.int}}</span>+</i>
+                                                    </div>
+                                                    <h5>{{i.title}}</h5>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>*
+ +                   </div>
+                    <div class="bodyContent" id="resume">
+                        <div class="pageCointainer">
+                            <section class="comonSection resumeSection">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h2 class="sectionTitle">Ta'lim</h2>
+                                            <div class="kr-accordion" id="edication_accordion">
+                                                {% for i in edu%}
+                                                    <div class="card">
+                                                        <div class="card-header" id="ea_{{i.id}}">
+                                                            <h2 class="mb-0">
+                                                                <a class="{% if edu.first == i %}{% else %}collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#ea_col_{{i.id}}" aria-expanded="{% if edu.first == i %}true{% else %}false{% endif %}" aria-controls="ea_col_{{i.id}}">
+                                                                    <i class="{{i.icon}}"></i>
+                                                                    <span>{{i.title}}</span>
+                                                                </a>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="ea_col_{{i.id}}" class="collapse {% if edu.first == i %}show{% endif %}" aria-labelledby="ea_{{i.id}}" data-parent="#edication_accordion">
+                                                            <div class="card-body">
+                                                                <div class="ac_meta"><span>{{i.begin}}:{{i.end}}</span><span>Grade:{{i.grade}}</span></div>
+                                                               {{i.text}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h2 class="sectionTitle">Kariera</h2>
+                                            <div class="kr-accordion" id="exps_accordion">
+                                                {% for i in exp%}
+                                                    <div class="card">
+                                                        <div class="card-header" id="ex_{{i.id}}">
+                                                            <h2 class="mb-0">
+  
+                                                                <a class="{% if exp.first == i %}{% else %}collapsed{% endif %}" href="#" data-toggle="collapse" data-target="#ex_col_{{i.id}}" aria-expanded="{% if exp.first == i %}true{% else %}false{% endif %}" aria-controls="ex_col_{{i.id}}">
+                                                                    <i class="{{i.icon}}"></i>
+                                                                    <span>{{i.title}}</span>
+                                                                </a>
+                                                            </h2>
+                                                        </div>
+                                                        <div id="ex_col_{{i.id}}" class="collapse {% if exp.first == i %}show{% endif %}" aria-labelledby="ex_{{i.id}}" data-parent="#exps_accordion">
+                                                            <div class="card-body">
+                                                                <div class="ac_meta"><span>{{i.begin}}:{{i.end}}</span><span>{{i.grade}}</span></div>
+                                                                  {{i.text}} 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="bodyContent" id="portfolio">
+                        <div class="pageCointainer">
+                            <section class="comonSection portfolioSection">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Qilingan Ishlardan</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <ul class="filterUL">
+                                                
+                                                    <li class="active filter" data-filter="all">ALL</li>
+                                                {% for i in category%}
+                                                    <li class = "filter" data-filter="{{i.name}}">{{i.name}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="Grid">
+                                        {% for i in portfolio%}
+                                            <div class="col-lg-4 folio_effect mix {{i.category.name}}">
+                                                <div class="folio_item">
+                                                    <a href="#" class="folio_item_thumbs">
+                                                        <div class="folio_stack">
+                                                            <div class="folio_decoration"></div>
+                                                            <div class="folio_decoration"></div>
+                                                            <div class="folio_decoration"></div>
+                                                            <div class="folio_decoration"></div>
+                                                            <div class="folio_img_holder">
+                                                                <img class="folio_img" src="{{i.image.url}}" alt="Image">
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <div class="folio_content">
+                                                        <h3 class="folio_title"><a href="#tml">{{i.title}}</a></h3>
+                                                        <p class="folio_cat"><a href="#">{{i.category.name}}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor%}
+                                        
+                                    </div>
+                                    <div class="row loadMoreRow mb22">
+                                        <div class="col-lg-12 loadMoreCol text-center mt23">
+                                            <a href="#" data-count="1" class="btt_btn bttb_dark loadMoreItem"><span><i class="icon icon-Restart"></i> Load More</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="bodyContent" id="blog">
+                        <div class="pageCointainer">
+                            <section class="comonSection blogSecion">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Maqolalar</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        {% for i in blogs %}
+                                            <div class="col-lg-6">
+                                                <div class="blogItem text-left">
+                                                    <div class="biThumb">
+                                                        <img src="{{i.image.url}}" alt=""/>
+                                                        <div class="biMeta">
+                                                            <a href="/Batafsil/" class>{{i.city}}</a><a href="/Batafsil/">{{i.data}}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="biDetails">
+                                                        <h3><a href="/Batafsil/">{{i.title}}</a></h3>
+                                                        <p>
+                                                           {{i.text|truncatechars:120}}</p>
+                                                        <a href="/Batafsil/" class="btt_link"><span>Read More</span></a>
+                                                        <span class="blogCount">{{i.id}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor%}
+                                        
+                                    </div>
+                                    <div class="row mt30 mb30">
+                                        <div class="col-lg-12">
+                                            <div class="btt_pagination">
+                                                <a href="/Batafsil/"><i class="icon icon-Arrow rotateHorizonaly"></i></a>
+                                                <span class="current">01</span>
+                                                <a href="/Batafsil/">02</a>
+                                                <a href="/Batafsil/">03</a>
+                                                <span class="blanks">...</span>
+                                                <a href="/Batafsil/">10</a>
+                                                <a href="/Batafsil/"><i class="icon icon-Arrow"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    <div class="bodyContent" id="contact">
+                        <div class="pageCointainer">
+                            <section class="comonSection mapSection mb30">
+                                <div class="map" id="map"></div>
+                            </section>
+                            <section class="comonSection contactSection">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <h2 class="sectionTitle">Aloqa</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row mb30">
+                                        <div class="col-lg-8">
+                                            <div class="contact_form">
+                                                <form method="post" action="/add-message/" >
+                                                    {% csrf_token %}
+                                                    <div class="row">
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="required" name="full_name" placeholder="Ism Familya *"/>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="required" name="email" placeholder="Email *"/>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" name="phone" placeholder="Telefon Raqam*"/>
+                                                        </div>
+                                                        <div class="col-lg-6">
+                                                            <input type="text" class="required" name="subject" placeholder="Mavzu *"/>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <textarea name="message" class="required" placeholder="Xabar *"></textarea>
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <button type='submit' class="btt_btn" value = 'Submit'><span><i class="icon icon-Mail"> Yuborish </i></span></button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="icon_box_01">
+                                                <i class="icon icon-Mail"></i>
+                                                <h3>Email manizilim</h3>
+                                                <p>{{info.gmail}}</p>
+                                            </div>
+                                            <div class="icon_box_01">
+                                                <i class="icon icon-Phone"></i>
+                                                <h3>Telefon raqamim</h3>
+                                                <p>{{info.phone}}</p>
+                                            </div>
+                                            <div class="icon_box_01 addrBox">
+                                                <i class="icon icon-Pointer"></i>
+                                                <h3>Uy Manzilim</h3>
+                                                <p>
+                                                   {{info.address}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                    
+                    <section class="comonSection blogContentSection " id="Batafsil">
+                        <div class="container-fluid">
+                            {% for i in blogs%}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h3 class="blogTitle">{{i.title}}</h3>
+                                        <div class="blogMeta">
+                                            <span>By <a href="#">{{i.city}}</a></span>
+                                            <span><a href="#">{{i.date}}</a></span>
+                                            <span><a href="#">{{i.viewers}}</a></span>
+                                        </div>
+                                        <div class="pageContent">
+                                            <p class="mb14">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+                                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
+                                                est laborum.
+                                            </p>
+                                            <p class="mb22">
+                                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id 
+                                                est laborum.
+                                            </p>
+                                            <img src="{{i.image.url}}" alt="" class="pcImg"/>
+                                            <p class="mb22">
+                                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                                                eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
+                                                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                                            </p>
+                                            <blockquote class="mb26">
+                                                <p>
+                                                    Sed ut perpiciatis unde omnis iste natus error sit volptatem accusantium doloremque laudntium, totam rem apriam, eaque ipsa quae 
+                                                    ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                                                </p>
+                                            </blockquote>
+                                            <h3 class="mb26">Dicta sunt explicabo</h3>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
+                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            {% comment %} <div class="row mt25">
+                                <div class="col-lg-8">
+                                    <div class="sicmr_tag clearfix">
+                                        <i class="icofont-tags"></i>
+                                        <a href="#">Branding,</a><a href="#">UI Design,</a><a href="#">Booking,</a><a href="#">Statup,</a><a href="#">Landing</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="sicmr_social">
+                                        <a href="https://facebook.com/" target="_blank"><i class="icofont-facebook"></i></a>
+                                        <a href="https://twitter.com/" target="_blank"><i class="icofont-twitter"></i></a>
+                                        <a href="https://vimeo.com/" target="_blank"><i class="icofont-vimeo"></i></a>
+                                    </div>
+                                </div>
+                            </div>  {% endcomment %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="commentArea">
+                                        <h2 class="sectionTitle mt52">Fikrlar {{blogs.id}}</h2>
+                                        <ol class="comment_list">
+                                            {% for i in comment %}
+                                                <li>
+                                                    <div class="single-comment">
+                                                        <img src="{% static 'assets/images/author/4.jpg'%}" alt="">
+                                                        <div class="authorDetails">
+                                                            <h5>{{i.portfolio}}</h5>
+                                                            <span>{{i.date}}</span>
+                                                        </div>
+                                                        <div class="comment">
+                                                           {{i.text}}</div>
+                                                        {% comment %} {% for i in blogs.first.com_port.all%} {% endcomment %}
+                                                        <a class="comment-reply-link" href="#Batafsil?c_id={{ i.id }}">Javob</a>                   
+                                                        {% for i in comment.first.text.id %}
+                                                             <div class="comment">{{i.text}} </div>
+                                                        {% endfor%}
+                                                        {% comment %} {% endfor%} {% endcomment %}
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                        </ol>
+                                        <h2 class="sectionTitle mt30" id ="Comment">Fikr bildirish</h2>
+                                        <div class="comentForm mb30">
+                                            <form method="post" action="/add-comment/" class="comForms">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <textarea class="com_textarea" name="comment" placeholder="Yozing"></textarea>
+                                                        <input type="hidden" name="portfolio" value="{{ blogs.id }}">
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <input type="submit" class="btt_btn" value="Post Comment">
+                                                        {% if c_id %}
+                                                        <input type='hidden' value='{{ c_id }}'>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bact To Top -->
+        <a href="javascript:void(0);" id="backtotop"><i class="icofont-bubble-up"></i></a>
+        <!-- Bact To Top -->
+
+        <!-- Start Include All JS -->
+        <script src="{% static 'assets/js/jquery.js'%}"></script>
+        <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+        <script src="{% static 'assets/js/jquery.appear.js'%}"></script>
+        <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'assets/js/mixer.js'%}"></script>
+        <script src="{% static 'assets/js/lightslider.min.js'%}"></script>
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyBJtPMZ_LWZKuHTLq5o08KSncQufIhPU3o"></script>
+        <script src="{% static 'assets/js/gmaps.js'%}"></script>
+        <script src="{% static 'assets/js/anime.min.js'%}"></script>
+        <script src="{% static 'assets/js/folio.js'%}"></script>
+        <script src="{% static 'assets/js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+        
+        <script src="{% static 'assets/js/jquery.easytabs.min.js'%}"></script>
+        <script src="{% static 'assets/js/theme.js'%}"></script>
+        <!-- End Include All JS -->
+    </body>
+</html>
