@@ -23,12 +23,56 @@
         <link rel="stylesheet" href="{% static 'assets/css/theme.css'%}"/>
         <link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}"/>
         <link rel="stylesheet" href="{% static 'assets/css/light.css'%}"/>
+        <link rel="stylesheet" href="{% static 'assets/css/account'%}"/>
+
         <!-- End Include All CSS -->
 
         <!-- Favicon Icon -->
         <link rel="icon"  type="image/png" href="{% static 'assets/images/favicon.png'%}">
         <!-- Favicon Icon -->
+
+    
     </head>
+    <style>
+        .header-links li a:hover{
+            color: rgb(10, 234, 10);
+        }
+        .header-links li a{
+            color: black;
+            float: left;
+            margin-right: 7%;
+            display: flex;
+            border: 1px solid black;
+            border-radius: 20%;
+            background-color: #fff;
+            padding-right:2%;
+            width: 140px;
+            margin-bottom: 2px;
+            font-family: sans-serif;
+            margin-bottom: 1%;
+
+            
+            
+        }
+        .icofont-user{
+            margin-right: 10px;
+            color:black;
+
+        }
+        .icofont-user:hover{
+            color: green;
+
+        }
+
+        .icofont-logout{
+            margin-right: 10px;
+            color:black;
+        }
+        .icofont-logout:hover{
+            color: green;
+
+        }
+    </style>
     <body class="light">
         
         <!-- Preloader Start -->
@@ -50,7 +94,16 @@
             </div>
         </div> {% endcomment %}
         <!-- Preloader End -->
-        
+        <ul class="header-links pull-right">
+            <li><a href="{% if user is authenticate%}/login/{% else%}/register/{% endif%}"><i class="icofont-user"></i> My Account</a></li>
+            
+        </ul>
+
+        <ul class="header-links pull-right">
+            <li><a href="/logout/"><i class="icofont-logout"></i> Logout </a></li>
+            
+        </ul>
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 profileColumn">
@@ -565,7 +618,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="biDetails">
-                                                        <h3><a href="/Batafsil/">{{i.title}}</a></h3>
+                                                        <h3><a href="/Views/{{i.id}}">{{i.title}}|{{i.viewers}}</a></h3>
                                                         <p>
                                                            {{i.text|truncatechars:120}}</p>
                                                         <a href="/Batafsil/" class="btt_link"><span>Read More</span></a>
@@ -612,11 +665,25 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <h2 class="sectionTitle">Aloqa</h2>
+                                            {% if messages %}
+                                                {% for i in messages%}
+                                                    <div class="alert alert-success alert-dismissible fade show " role="alert">
+                                                        {% autoescape off %}{{i}}{% endautoescape %}
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+
+                                                        </button>
+
+                                                    </div>
+                                                {% endfor%}
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <div class="row mb30">
                                         <div class="col-lg-8">
+                                            
                                             <div class="contact_form">
+                                                
                                                 <form method="post" action="/add-message/" >
                                                     {% csrf_token %}
                                                     <div class="row">
@@ -668,7 +735,7 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-lg-12 text-center">
-                                            <div class="copyRight">&copy; 2021 All Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
+                                            <div class="copyRight">&copy; 2021 Atll Rights Reserved By <a href="http://themewar.com" target="_blank">ThemeWar</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -684,8 +751,9 @@
                                         <h3 class="blogTitle">{{i.title}}</h3>
                                         <div class="blogMeta">
                                             <span>By <a href="#">{{i.city}}</a></span>
-                                            <span><a href="#">{{i.date}}</a></span>
-                                            <span><a href="#">{{i.viewers}}</a></span>
+                                            <span><a href="#">{{i.date}}</a></s pan>
+                                            <span><a href="#">ko'rishlar soni: {{i.viewers}}</a></span>
+                                        
                                         </div>
                                         <div class="pageContent">
                                             <p class="mb14">
@@ -771,11 +839,16 @@
                                                         <input type="hidden" name="portfolio" value="{{ blogs.id }}">
                                                     </div>
                                                     <div class="col-lg-12 col-md-12">
+                                                        <!-- {% if c is authenticated%} -->
                                                         <input type="submit" class="btt_btn" value="Post Comment">
+                                                        <!-- {% else%} -->
+                                                        <!-- <a href="/register/"><p>for Adding comment please register</p></a> -->
+                                                        {% endif%}
                                                         {% if c_id %}
                                                         <input type='hidden' value='{{ c_id }}'>
-                                                        {% endif %}
+                                                        <!-- {% endif %} -->
                                                     </div>
+
                                                 </div>
                                             </form>
                                         </div>

@@ -1,0 +1,42 @@
+.header-links li a {
+    color: #FFF;
+}
+
+a {
+    color: #2B2D42;
+    font-weight: 500;
+    -webkit-transition: 0.2s color;
+    transition: 0.2s color;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.header-links li {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 12px;
+}
+user agent stylesheet
+li {
+    text-align: -webkit-match-parent;
+}
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

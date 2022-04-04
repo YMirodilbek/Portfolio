@@ -1,4 +1,5 @@
 from argparse import _MutuallyExclusiveGroup
+from os import truncate
 from tkinter import CASCADE
 from django.db import models
 from django.shortcuts import render
@@ -10,7 +11,7 @@ class Info(models.Model):
     fi = models.CharField(max_length=50)
     staff = models.CharField(max_length=25)
     photo = models.ImageField(upload_to='info')
-    gmail = models.CharField(max_length=25)
+    gmail = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
     birthday = models.DateField()
     phone = models.CharField(max_length=13)
@@ -47,8 +48,7 @@ class Bio(models.Model):
     text3= models.CharField(max_length=10000)
 
     def __str__(self):
-        return self.text
-    
+        return self.text   
 
 class Slider(models.Model):
     icon = models.CharField(max_length=80)
@@ -135,10 +135,10 @@ class Port(models.Model):
         return self.title
 
 class Messages(models.Model):
-    name = models.CharField(max_length=60)
-    subject = models.CharField(max_length=60)
-    email = models.CharField(max_length=60)
-    phone = models.IntegerField()
+    name = models.CharField(max_length=60,null=True,blank=True)
+    subject = models.CharField(max_length=60,null=True,blank=True)
+    email = models.CharField(max_length=60,null=True,blank=True)
+    phone = models.IntegerField(null=True,blank=True)
     msg = models.TextField()
 
     def __str__(self):

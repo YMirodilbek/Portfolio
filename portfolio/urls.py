@@ -18,7 +18,15 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from main.views import *
+
 urlpatterns = [
     path('', include('main.urls')),
+    path('404/', e404),
     path('sharda/', admin.site.urls),
+    path('login/', Login),
+    path('register/', Register),
+    path('logout/', Logout),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = customhandler404
